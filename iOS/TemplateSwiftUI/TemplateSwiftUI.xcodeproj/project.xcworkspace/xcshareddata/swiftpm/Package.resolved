@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "grdb.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/groue/GRDB.swift",
+      "state" : {
+        "revision" : "23f4254ae36fa19aecd73047c0577a9f49850d1c",
+        "version" : "5.26.0"
+      }
+    },
+    {
+      "identity" : "swift-log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-log.git",
+      "state" : {
+        "revision" : "8fc79cae9d03a5e623c52cc2dbd2df165a7832b0",
+        "version" : "1.4.3"
+      }
+    }
+  ],
+  "version" : 2
+}

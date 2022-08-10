@@ -9,9 +9,7 @@ import SwiftUI
 
 @main
 struct TemplateSwiftUIApp: App {
-    init() {
-        
-    }
+    private let container = try! AppContainer()
 
     var body: some Scene {
         WindowGroup {

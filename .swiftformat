@@ -1,0 +1,2 @@
+--disable enumNamespaces,unusedArguments
+--enable blankLinesBetweenImports,blockComments,isEmpty,preferDouble,sortedSwitchCases

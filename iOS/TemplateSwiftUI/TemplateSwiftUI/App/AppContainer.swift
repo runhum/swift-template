@@ -8,8 +8,10 @@
 import Foundation
 import Persistence
 
+protocol Container {}
+
 /// Contains the app's dependencies
-struct AppContainer {
+struct AppContainer: Container {
     private let fileManager: FileManager = .default
     private let database: AppDatabase
 

@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct AppView: View {
+    private let viewFactory: AppViewFactory
     @State private var tab: Tab = .first
-    
+    init(viewFactory: AppViewFactory) {
+        self.viewFactory = viewFactory
+    }
+
     var body: some View {
         TabView(selection: $tab) {
-            FirstView()
+            viewFactory.makeFirstView()
                 .tabItem {
                     Label(Tab.first.title, systemImage: Tab.first.symbolName)
                 }
                 .tag(Tab.first)
 
-            SecondView()
+            viewFactory.makeSecondView()
                 .tabItem {
                     Label(Tab.second.title, systemImage: Tab.second.symbolName)
                 }
@@ -29,6 +33,6 @@ struct AppView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        AppView()
+        AppView(viewFactory: AppViewFactory(container: PreviewAppContainer()))
     }
 }

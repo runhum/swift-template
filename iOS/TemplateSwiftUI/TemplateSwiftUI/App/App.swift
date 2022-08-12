@@ -13,7 +13,7 @@ struct TemplateSwiftUIApp: App {
 
     var body: some Scene {
         WindowGroup {
-            AppView()
+            AppView(viewFactory: AppViewFactory(container: container))
         }
     }
 }

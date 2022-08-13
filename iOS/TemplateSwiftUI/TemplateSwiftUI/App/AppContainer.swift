@@ -7,13 +7,18 @@
 
 import Foundation
 import Persistence
+import Repositories
 
-protocol Container {}
+protocol Container {
+    var todoRepository: TodoRepositoryProtocol { get }
+}
 
 /// Contains the app's dependencies
 struct AppContainer: Container {
     private let fileManager: FileManager = .default
     private let database: AppDatabase
+
+    let todoRepository: TodoRepositoryProtocol
 
     init() throws {
         let databasePath = try FileManager.default
@@ -23,5 +28,8 @@ struct AppContainer: Container {
 
         database = try AppDatabase(type: .persistent(path: databasePath))
         try database.migrate()
+        try database.seed()
+        
+        todoRepository = TodoRepository(database: database)
     }
 }

@@ -6,5 +6,9 @@
 //
 
 import Foundation
+import Persistence
+import Repositories
 
-struct PreviewAppContainer: Container {}
+struct PreviewAppContainer: Container {
+    var todoRepository: TodoRepositoryProtocol = TodoRepository(database: try! AppDatabase(type: .inMemory))
+}

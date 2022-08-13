@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		EF1B259428A653A0009BB7E3 /* AppViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1B259328A653A0009BB7E3 /* AppViewFactory.swift */; };
-		EF1B259628A653FF009BB7E3 /* PreviewAppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1B259528A653FF009BB7E3 /* PreviewAppContainer.swift */; };
+		EF1B259828A655C8009BB7E3 /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1B259728A655C8009BB7E3 /* FirstViewModel.swift */; };
+		EF1B259A28A656ED009BB7E3 /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = EF1B259928A656ED009BB7E3 /* Repositories */; };
+		EF1B259C28A656F1009BB7E3 /* UI in Frameworks */ = {isa = PBXBuildFile; productRef = EF1B259B28A656F1009BB7E3 /* UI */; };
+		EF1B259E28A656F5009BB7E3 /* Entities in Frameworks */ = {isa = PBXBuildFile; productRef = EF1B259D28A656F5009BB7E3 /* Entities */; };
+		EF1B259F28A657B9009BB7E3 /* PreviewAppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1B259528A653FF009BB7E3 /* PreviewAppContainer.swift */; };
 		EF2AD84328A414DA004954A2 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2AD84228A414DA004954A2 /* Tab.swift */; };
 		EF2AD84728A41547004954A2 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2AD84628A41547004954A2 /* FirstView.swift */; };
 		EF2AD84928A41578004954A2 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2AD84828A41578004954A2 /* SecondView.swift */; };
@@ -24,6 +28,7 @@
 /* Begin PBXFileReference section */
 		EF1B259328A653A0009BB7E3 /* AppViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewFactory.swift; sourceTree = "<group>"; };
 		EF1B259528A653FF009BB7E3 /* PreviewAppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAppContainer.swift; sourceTree = "<group>"; };
+		EF1B259728A655C8009BB7E3 /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
 		EF2AD84228A414DA004954A2 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		EF2AD84628A41547004954A2 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		EF2AD84828A41578004954A2 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
@@ -42,6 +47,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF1B259A28A656ED009BB7E3 /* Repositories in Frameworks */,
+				EF1B259E28A656F5009BB7E3 /* Entities in Frameworks */,
+				EF1B259C28A656F1009BB7E3 /* UI in Frameworks */,
 				EF2AD84C28A416EB004954A2 /* Persistence in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				EF2AD84628A41547004954A2 /* FirstView.swift */,
+				EF1B259728A655C8009BB7E3 /* FirstViewModel.swift */,
 			);
 			path = First;
 			sourceTree = "<group>";
@@ -174,6 +183,9 @@
 			name = TemplateSwiftUI;
 			packageProductDependencies = (
 				EF2AD84B28A416EB004954A2 /* Persistence */,
+				EF1B259928A656ED009BB7E3 /* Repositories */,
+				EF1B259B28A656F1009BB7E3 /* UI */,
+				EF1B259D28A656F5009BB7E3 /* Entities */,
 			);
 			productName = TemplateSwiftUI;
 			productReference = EFE3ECA928A411AF00021A3F /* TemplateSwiftUI.app */;
@@ -229,14 +241,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF1B259628A653FF009BB7E3 /* PreviewAppContainer.swift in Sources */,
 				EF2AD84928A41578004954A2 /* SecondView.swift in Sources */,
 				EFE3ECAF28A411AF00021A3F /* AppView.swift in Sources */,
+				EF1B259F28A657B9009BB7E3 /* PreviewAppContainer.swift in Sources */,
 				EF2AD84728A41547004954A2 /* FirstView.swift in Sources */,
 				EF1B259428A653A0009BB7E3 /* AppViewFactory.swift in Sources */,
 				EFE3ECAD28A411AF00021A3F /* App.swift in Sources */,
 				EFE3ECBF28A412BD00021A3F /* AppContainer.swift in Sources */,
 				EF2AD84328A414DA004954A2 /* Tab.swift in Sources */,
+				EF1B259828A655C8009BB7E3 /* FirstViewModel.swift in Sources */,
 				EF2AD85128A41F18004954A2 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +457,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EF1B259928A656ED009BB7E3 /* Repositories */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Repositories;
+		};
+		EF1B259B28A656F1009BB7E3 /* UI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UI;
+		};
+		EF1B259D28A656F5009BB7E3 /* Entities */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Entities;
+		};
 		EF2AD84B28A416EB004954A2 /* Persistence */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Persistence;

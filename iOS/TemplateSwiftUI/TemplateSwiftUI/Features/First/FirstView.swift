@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-struct FirstViewModel {}
 
 struct FirstView: View {
     @State private var viewModel: FirstViewModel
@@ -15,12 +14,23 @@ struct FirstView: View {
     }
 
     var body: some View {
-        Text("First")
+        NavigationStack {
+            List(viewModel.rows) { todo in
+                HStack {
+                    Toggle(todo.title, isOn: .constant(false))
+                        .toggleStyle(.button)
+//                Text(todo.title)
+                }
+            }
+        }
+        .task {
+            await viewModel.fetchTodos()
+        }
     }
 }
 
 struct FirstView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstView(viewModel: FirstViewModel())
+        FirstView(viewModel: FirstViewModel(todoRepository: PreviewAppContainer().todoRepository))
     }
 }

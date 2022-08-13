@@ -9,10 +9,12 @@ import Entities
 import Foundation
 import Persistence
 
+/// Types that implement `TodoRepositoryProtocol` will be able to perform CRUD operations on Todo's
 public protocol TodoRepositoryProtocol {
     func fetchAll() async throws -> [Todo]
 }
 
+/// Todo repository implemented using a SQLite database
 public struct TodoRepository {
     private let database: AppDatabase
     public init(database: AppDatabase) {

@@ -14,7 +14,7 @@ struct AppViewFactory {
     }
 
     func makeFirstView() -> FirstView {
-        FirstView(viewModel: FirstViewModel())
+        FirstView(viewModel: FirstViewModel(todoRepository: container.todoRepository))
     }
 
     func makeSecondView() -> SecondView {

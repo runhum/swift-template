@@ -8,10 +8,11 @@
 import Foundation
 import GRDB
 
+/// An example migration
 struct Version1: Migration {
     let identifier: String = "v1"
     let migrate: (Database) throws -> Void = { db in
-        
+
         try db.create(table: "appConfiguration") { table in
             // Single row guarantee
             table.column("id", .integer)
@@ -26,9 +27,11 @@ struct Version1: Migration {
 
         try db.create(table: "todo") { table in
             table.autoIncrementedPrimaryKey("id")
+            table.column("title", .text)
+                .notNull()
             table.column("isComplete", .boolean)
                 .notNull()
-            table.column("text", .text)
+            table.column("notes", .text)
         }
     }
 }

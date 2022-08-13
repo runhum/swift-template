@@ -42,11 +42,9 @@ public extension AppDatabase {
     func erase() async throws {
         try await queue.erase()
     }
-}
 
-public extension AppDatabase {
     func seed() throws {
-        let todo = Todo(id: 1, isComplete: false, text: "Hello, World!")
+        let todo = Todo(title: "Complete SwiftUI Template", isComplete: false, text: "Hmm")
 
         try queue.write { db in
             if try Todo.fetchCount(db) == 0 {

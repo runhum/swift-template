@@ -3,10 +3,7 @@ Templates for Swift projects.
 
 
 ## Server
-TODO
+A simple HTTP server using the `Vapor` framework.
 
 ## iOS
-TODO
-
-## CLI
 TODO

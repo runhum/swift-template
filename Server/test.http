@@ -1,0 +1,12 @@
+GET http://localhost:8080/users
+
+###
+GET http://localhost:8080/users/E58E9A60-21DE-461A-B389-8A1529BBB6D9
+
+###
+POST http://localhost:8080/users
+Content-Type: "application/json"
+
+{
+    "name": "Vapor"
+}

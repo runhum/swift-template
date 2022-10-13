@@ -20,7 +20,7 @@ public struct UserController: RouteCollection {
     }
 
     func single(req: Request) async throws -> UserDTO {
-        guard let id = req.parameters.get("id"),
+        guard let id = req.parameters.get("id", as: UUID.self),
               let user = try await userService.fetch(id: id)
         else { throw Abort(.notFound) }
         return user

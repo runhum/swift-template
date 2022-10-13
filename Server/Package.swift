@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.7
 import PackageDescription
 
 private let serverName = "Server"
@@ -35,7 +35,7 @@ let package = Package(
 
         .target(name: "DTO"),
 
-        .testTarget(name: "\(appName)Tests", dependencies: [
+        .testTarget(name: "RepositoryTests", dependencies: [
             .target(name: serverName),
             .product(name: "XCTVapor", package: "vapor"),
         ]),

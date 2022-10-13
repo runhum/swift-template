@@ -29,6 +29,10 @@ A small example of a HTTP server in Swift.
                 - Business logic for user related operations 
     [DTO]
         - Standalone module for the DTO's. To be shared with clients.
+[Tests]
+    [RepositoryTests]
+        UserRepositoryTests.swift
+            - Tests for the user repository
 ```
 
 ## Running the server

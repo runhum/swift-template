@@ -15,27 +15,28 @@ final class UserRepositoryTests: XCTestCase {
     }
 
     override func tearDown() {}
-    
+
     func testCreateUser() async throws {
         let user = User(name: "foo")
-        
+
         try await userRepository.create(user: user)
-        
+
         XCTAssertEqual("foo", user.name)
     }
 
     func testFetchUserById() async throws {
-        let uuid = UUID()
+        let uuid = try XCTUnwrap(UUID(uuidString: "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"))
         try await User(id: uuid, name: "foo").save(on: app.db)
-        let possibleUser = try await userRepository.fetch(id: uuid.uuidString)
+        let possibleUser = try await userRepository.fetch(id: uuid)
         let user = try XCTUnwrap(possibleUser)
         XCTAssertEqual(user.name, "foo")
         XCTAssertEqual(user.id, uuid)
     }
 
     func testFetchUserWithWrongId() async throws {
-        let user = try await userRepository.fetch(id: "foo")
-        
+        let uuid = try XCTUnwrap(UUID(uuidString: "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"))
+        let user = try await userRepository.fetch(id: uuid)
+
         XCTAssertNil(user)
     }
 }

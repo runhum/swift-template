@@ -16,6 +16,7 @@ struct App {
 
         app.databases.use(.sqlite(.file("server.db")), as: .sqlite)
         app.migrations.add(Version1())
+        
         let userRepository = UserFluentRepository(database: app.db)
         let userService = UserService(userRepository: userRepository)
         app.logger.info("Migrating database...")

@@ -1,4 +1,5 @@
 import DTO
+import Foundation
 
 public struct UserService {
     private let userRepository: UserRepository
@@ -7,7 +8,7 @@ public struct UserService {
         self.userRepository = userRepository
     }
 
-    public func fetch(id: String) async throws -> UserDTO? {
+    public func fetch(id: UUID) async throws -> UserDTO? {
         try await userRepository
             .fetch(id: id)
             .map { try UserDTO(id: $0.requireID(), name: $0.name) }

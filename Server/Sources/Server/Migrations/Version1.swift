@@ -6,6 +6,9 @@ public struct Version1: AsyncMigration {
         try await database.schema("users")
             .id()
             .field("name", .string, .required)
+            .field("created_at", .datetime)
+            .field("updated_at", .datetime)
+            .field("deleted_at", .datetime)
             .create()
     }
 

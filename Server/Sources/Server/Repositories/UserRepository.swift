@@ -2,10 +2,11 @@ import Fluent
 import Foundation
 
 public protocol UserRepository {
-    func fetch(id: String) async throws -> User?
+    func fetch(id: UUID) async throws -> User?
     func fetchAll() async throws -> [User]
     func create(user: User) async throws
     func fetchUserCount() async throws -> Int
+    func delete(id: UUID) async throws
 }
 
 public struct UserFluentRepository: UserRepository {
@@ -14,8 +15,8 @@ public struct UserFluentRepository: UserRepository {
         self.database = database
     }
 
-    public func fetch(id: String) async throws -> User? {
-        try await User.find(UUID(uuidString: id), on: database)
+    public func fetch(id: UUID) async throws -> User? {
+        try await User.find(id, on: database)
     }
 
     public func fetchAll() async throws -> [User] {
@@ -28,5 +29,9 @@ public struct UserFluentRepository: UserRepository {
 
     public func fetchUserCount() async throws -> Int {
         try await User.query(on: database).count()
+    }
+
+    public func delete(id: UUID) async throws {
+        try await User.find(id, on: database)?.delete(on: database)
     }
 }

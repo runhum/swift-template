@@ -16,6 +16,7 @@ jobs:
 
     steps:
     - uses: swift-actions/setup-swift@v1
+    - uses: actions/checkout@v3
     - name: Build
       run: cd Server && swift build -v
     - name: Run tests
